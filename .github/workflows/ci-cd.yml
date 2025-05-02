@@ -17,12 +17,12 @@ jobs:
                   username: ${{ secrets.EC2_USER }}
                   key: ${{ secrets.EC2_SSH_KEY }}
                   script: |
-                    cd carportal_frontend
-                    sudo git pull
-                    sudo npm install
-                    sudo npm run build
-                    sudo rm -rf /var/www/domain/*
-                    sudo cp -r dist/* /var/www/domain/
-                    sudo chown -R www-data:www-data /var/www/domain
-                    sudo chmod -R 755 /var/www/domain
-                    sudo systemctl reload nginx
+                      cd carportal_frontend
+                      sudo git pull
+                      sudo npm install
+                      sudo npm run build
+                      sudo rm -rf /var/www/saarcodes.dev/*
+                      sudo cp -r dist/* /var/www/saarcodes.dev/
+                      sudo chown -R www-data:www-data /var/www/saarcodes.dev
+                      sudo chmod -R 755 /var/www/saarcodes.dev
+                      sudo systemctl reload nginx
