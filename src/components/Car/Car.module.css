@@ -1,0 +1,55 @@
+.carContainer {
+  background: #7400b8;
+  color: #ffffff;
+  display: flex;
+  border-radius: 4px;
+  margin: 0.5rem;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 2px 8px 0px;
+  width: 43rem;
+}
+
+.carInformation {
+  display: flex;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-right: 1px solid #ffffff;
+}
+
+.dataContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.imgContainer {
+  display: flex;
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.imgContainer img {
+  height: 16rem;
+  width: 30rem;
+  object-fit: cover;
+  border-radius: 0 4px 4px 0;
+}
+
+.titleContainer span,
+.dataContainer span {
+  border-bottom: 1px solid #ffffff;
+  padding: 0.25rem;
+  text-wrap: nowrap;
+}
+
+.titleContainer span:last-of-type,
+.dataContainer span:last-of-type {
+  border-bottom: none;
+}
