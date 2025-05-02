@@ -22,7 +22,7 @@ jobs:
                     sudo npm install
                     sudo npm run build
                     sudo rm -rf /var/www/domain/*
-                    sudo cp -r build/* /var/www/domain/
+                    sudo cp -r dist/* /var/www/domain/
                     sudo chown -R www-data:www-data /var/www/domain
                     sudo chmod -R 755 /var/www/domain
                     sudo systemctl reload nginx
