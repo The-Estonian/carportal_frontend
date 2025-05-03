@@ -20,7 +20,7 @@ jobs:
                       cd carportal_frontend
                       sudo git pull
                       sudo npm install
-                      sudo env VITE_API_URL=https://saarcodes.dev npm run build
+                      sudo env VITE_API_URL=api.saarcodes.dev npm run build
                       sudo rm -rf /var/www/saarcodes.dev/*
                       sudo cp -r dist/* /var/www/saarcodes.dev/
                       sudo chown -R www-data:www-data /var/www/saarcodes.dev
