@@ -19,7 +19,7 @@ function App() {
   const fetchCar = async () => {
     setLoadCars(true);
     try {
-      const response = await fetch('http://localhost:8080/api/v1/cars/all', {});
+      const response = await fetch('https://api.saarcodes.dev/api/v1/cars/all', {});
 
       if (!response.ok) {
         console.log("Can't connect to backend");
