@@ -7,6 +7,7 @@ import civic from '../../assets/Civic.jpg';
 import f150 from '../../assets/F-150.jpg';
 import model3 from '../../assets/Model 3.jpg';
 import prius from '../../assets/Prius.jpg';
+import default_car from '../../assets/default.jpg';
 import Spinner from '../Spinner/Spinner';
 
 interface CarProps {
@@ -26,6 +27,8 @@ const Car: React.FC<CarProps> = ({ carData }) => {
     carImage = model3;
   } else if (carData.model === 'Prius') {
     carImage = prius;
+  } else {
+    carImage = default_car;
   }
   return (
     <div className={styles.carContainer}>
