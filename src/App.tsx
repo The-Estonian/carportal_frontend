@@ -38,7 +38,7 @@ function App() {
     } catch (error) {
       console.log(error);
       setFetchedCars([]);
-      setLoadCars(false);
+      // setLoadCars(false);
     }
   };
 

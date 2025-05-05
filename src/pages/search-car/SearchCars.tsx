@@ -12,7 +12,19 @@ const SearchCars = () => {
     const [to, setTo] = useState<string>("")
     const [baseYear, setBaseYear] = useState<string>("")
 
-    const searchCarByRegistrationTax = async () => {
+  const searchCarByRegistrationTax = async () => {
+      if (from.length < 1) {
+        setCarData("Please provide Annual tax <FROM> value")
+        return
+      }
+      if (to.length < 1) {
+        setCarData("Please provide Annual tax <TO> value")
+        return
+      }
+      if (baseYear.length < 4) {
+        setCarData("Please provide Annual tax <Base Year> value")
+        return
+      }
       setLoadCars(true);
       try {
         const response = await fetch(`${API_URL}/api/v1/cars/registration-tax-range?from=${from}&to=${to}&baseYear=${baseYear}`, {
@@ -35,7 +47,19 @@ const SearchCars = () => {
       }
   };
   
-    const searchCarByAnnualTax = async () => {
+  const searchCarByAnnualTax = async () => {
+      if (from.length < 1) {
+        setCarData("Please provide Annual tax <FROM> value")
+        return
+      }
+      if (to.length < 1) {
+        setCarData("Please provide Annual tax <TO> value")
+        return
+      }
+      if (baseYear.length < 4) {
+        setCarData("Please provide Annual tax <Base Year> value")
+        return
+      }
       setLoadCars(true);
       try {
         const response = await fetch(`${API_URL}/api/v1/cars/annual-tax-range?from=${from}&to=${to}&baseYear=${baseYear}`, {
@@ -58,7 +82,15 @@ const SearchCars = () => {
       }
   };
   
-    const searchCarPriceRange = async () => {
+  const searchCarPriceRange = async () => {
+      if (from.length < 1) {
+        setCarData("Please provide Annual tax <FROM> value")
+        return
+      }
+      if (to.length < 1) {
+        setCarData("Please provide Annual tax <TO> value")
+        return
+      }
       setLoadCars(true);
       try {
         const response = await fetch(`${API_URL}/api/v1/cars/price-range?from=${from}&to=${to}`, {
@@ -79,7 +111,7 @@ const SearchCars = () => {
         setCarData("")
         setLoadCars(false);
       }
-    };
+  };
 
   return (
     <div className={styles.search_container}>
