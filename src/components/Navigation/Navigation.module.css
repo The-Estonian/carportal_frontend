@@ -1,0 +1,23 @@
+.menuButtons {
+    display: flex;
+    justify-content: center;
+    padding: 0.15rem;
+    border-radius: 4px;
+    background: #7400b8;
+    width: fit-content;
+    margin: auto;
+}
+
+.menuButtons a {
+    background: black;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    margin: 0.15rem;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.menuButtons a:hover {
+    background: white;
+    color: black;
+}

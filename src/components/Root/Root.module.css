@@ -1,0 +1,7 @@
+.root {
+}
+
+.root_outlet{
+    display: flex;
+    justify-content: center;
+}
