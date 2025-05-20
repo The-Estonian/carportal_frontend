@@ -13,7 +13,7 @@ export const AddCar = () => {
 
 
   const submitNewCarHandler = async () => {
-    const response = await fetch(`${API_URL}/api/v1/cars/add-car`, {
+    const response = await fetch(`${API_URL}/api/v1/cars/add-car?model=${model}&manufacturer=${manufacturer}&year=${year}&fuelType=${fuelType}&emission=${emission}&price=${price}`, {
         method: "POST"
     });
     if (!response.ok) {
