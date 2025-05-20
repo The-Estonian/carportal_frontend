@@ -1,86 +1,8 @@
 body {
     background: black;
 }
-#root {
-    padding: 0.5rem;
-    text-align: center;
-    width: 100%;
-}
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 95%;
-}
-
-.dataContainer {
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 80%;
-}
-
-.menuButtons {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    left: 2rem;
-    top: 2.7rem;
-    padding: 0.15rem;
-    border-radius: 4px;
-    background: #7400b8;
-}
-
-.menuButtons button {
-    background: black;
-    color: white;
-    margin: 0.25rem;
-    border: 1px solid transparent;
-}
-
-.menuButtons button:hover {
-    background: white;
-    color: black;
-    border: 1px solid red;
-}
-
-.car_input {
-    outline: none;
-    padding: 0.3rem;
-    box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
-    margin: 0.25rem;
-    text-align: center;
-}
-
-.car_input_submit {
-    outline: none;
-    padding: 0.3rem;
-    margin: 0.25rem;
-    cursor: pointer;
-    background: black;
-    color: white;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-
-.car_input_submit:hover {
-    background: white;
-    color: black;
-    border: 1px solid red;
-}
-
-.input_container {
-    padding: 0.15rem;
-    border-radius: 4px;
-    background: #7400b8;
-    display: flex;
-    flex-direction: column;
 }
