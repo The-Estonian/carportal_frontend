@@ -13,7 +13,7 @@ export const AddCar = () => {
 
 
   const submitNewCarHandler = async () => {
-    const response = await fetch(`${API_URL}/api/v1/cars/all`, {
+    const response = await fetch(`${API_URL}/api/v1/cars/add-car`, {
         method: "POST"
     });
     if (!response.ok) {
