@@ -33,9 +33,8 @@ export const AddCar: React.FC<AddCarProps> = ({refreshList}) => {
     });
     if (!response.ok) {
       console.log("Can't connect to backend");
+      return
     }
-    const data = await response.json();
-    if (data.newCar == "success") {
       setManufacturer("")
       setCarModel("")
       setFuelType("")
@@ -43,7 +42,6 @@ export const AddCar: React.FC<AddCarProps> = ({refreshList}) => {
       setEmissions("")
       setPrice("")
       refreshList()
-    }
   }
   return (
         <div className={styles.input_container}>
