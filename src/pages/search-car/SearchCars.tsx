@@ -3,10 +3,13 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 import {useState} from "react"
 import Spinner from '../../components/Spinner/Spinner';
 import styles from "./SearchCars.module.css"
+import { CarType } from "../../types/Car";
+import Car from "../../components/Car/Car";
 
 const SearchCars = () => {
-    const [carData, setCarData] = useState<string>("");
+    const [carData, setCarData] = useState<CarType[]>([]);
     const [loadCars, setLoadCars] = useState<boolean>(false);
+    const [error, setError] = useState<string>("")
 
     const [from, setFrom] = useState<string>("")
     const [to, setTo] = useState<string>("")
@@ -14,17 +17,18 @@ const SearchCars = () => {
 
   const searchCarByRegistrationTax = async () => {
       if (from.length < 1) {
-        setCarData("Please provide Annual tax <FROM> value")
+        setError("Please provide Annual tax <FROM> value")
         return
       }
       if (to.length < 1) {
-        setCarData("Please provide Annual tax <TO> value")
+        setError("Please provide Annual tax <TO> value")
         return
       }
       if (baseYear.length < 4) {
-        setCarData("Please provide Annual tax <Base Year> value")
+        setError("Please provide Annual tax <Base Year> value")
         return
       }
+      setError("")
       setLoadCars(true);
       try {
         const response = await fetch(`${API_URL}/api/v1/cars/registration-tax-range?from=${from}&to=${to}&baseYear=${baseYear}`, {
@@ -34,7 +38,7 @@ const SearchCars = () => {
         if (!response.ok) {
           console.log("Can't connect to backend");
         }
-        const data = await response.text();     
+        const data = await response.json();     
         setLoadCars(false);
         setCarData(data);
         setFrom("")
@@ -42,24 +46,25 @@ const SearchCars = () => {
         setBaseYear("")
       } catch (error) {
         console.log(error);
-        setCarData("")
+        setCarData([])
         setLoadCars(false);
       }
   };
   
   const searchCarByAnnualTax = async () => {
       if (from.length < 1) {
-        setCarData("Please provide Annual tax <FROM> value")
+        setError("Please provide Annual tax <FROM> value")
         return
       }
       if (to.length < 1) {
-        setCarData("Please provide Annual tax <TO> value")
+        setError("Please provide Annual tax <TO> value")
         return
       }
       if (baseYear.length < 4) {
-        setCarData("Please provide Annual tax <Base Year> value")
+        setError("Please provide Annual tax <Base Year> value")
         return
       }
+      setError("")
       setLoadCars(true);
       try {
         const response = await fetch(`${API_URL}/api/v1/cars/annual-tax-range?from=${from}&to=${to}&baseYear=${baseYear}`, {
@@ -69,7 +74,7 @@ const SearchCars = () => {
         if (!response.ok) {
           console.log("Can't connect to backend");
         }
-        const data = await response.text();
+        const data = await response.json();
         setLoadCars(false);
         setCarData(data);
         setFrom("")
@@ -77,20 +82,21 @@ const SearchCars = () => {
         setBaseYear("")
       } catch (error) {
         console.log(error);
-        setCarData("")
+        setCarData([])
         setLoadCars(false);
       }
   };
   
   const searchCarPriceRange = async () => {
       if (from.length < 1) {
-        setCarData("Please provide Annual tax <FROM> value")
+        setError("Please provide Annual tax <FROM> value")
         return
       }
       if (to.length < 1) {
-        setCarData("Please provide Annual tax <TO> value")
+        setError("Please provide Annual tax <TO> value")
         return
-      }
+    }
+    setError("")
       setLoadCars(true);
       try {
         const response = await fetch(`${API_URL}/api/v1/cars/price-range?from=${from}&to=${to}`, {
@@ -100,7 +106,7 @@ const SearchCars = () => {
         if (!response.ok) {
           console.log("Can't connect to backend");
         }
-        const data = await response.text();
+        const data = await response.json();
         setLoadCars(false);
         setCarData(data);
         setFrom("")
@@ -108,7 +114,7 @@ const SearchCars = () => {
         setBaseYear("")
       } catch (error) {
         console.log(error);
-        setCarData("")
+        setCarData([])
         setLoadCars(false);
       }
   };
@@ -126,11 +132,12 @@ const SearchCars = () => {
         <span onClick={searchCarPriceRange}>By Price Range</span>
       </div>}
       {loadCars && < Spinner />}
+      {error && error}
       {!loadCars &&
         <div className={styles.searchResult}>
-          <pre>
-            {carData}
-          </pre>
+            {carData.map((eachCar, index) => (
+          <Car key={index} carData={eachCar} />
+        ))}
         </div>
       }
     </div>
