@@ -17,15 +17,15 @@ interface CarProps {
 const Car: React.FC<CarProps> = ({ carData }) => {
   const [imageLoading, setImageLoading] = useState<boolean>(true);
   let carImage;
-  if (carData.model === 'Camry') {
+  if (carData.carModel === 'Camry') {
     carImage = camry;
-  } else if (carData.model === 'Civic') {
+  } else if (carData.carModel === 'Civic') {
     carImage = civic;
-  } else if (carData.model === 'F-150') {
+  } else if (carData.carModel === 'F-150') {
     carImage = f150;
-  } else if (carData.model === 'Model 3') {
+  } else if (carData.carModel === 'Model 3') {
     carImage = model3;
-  } else if (carData.model === 'Prius') {
+  } else if (carData.carModel === 'Prius') {
     carImage = prius;
   } else {
     carImage = default_car;
@@ -44,11 +44,11 @@ const Car: React.FC<CarProps> = ({ carData }) => {
         </div>
         <div className={styles.dataContainer}>
           {/* <span>{carData.id}</span> */}
-          <span>{carData.model}</span>
+          <span>{carData.carModel}</span>
           <span>{carData.manufacturer}</span>
-          <span>{carData.year}</span>
-          <span>{carData.fuelType}</span>
-          <span>{carData.emission}</span>
+          <span>{carData.modelYear}</span>
+          <span>{carData.fuelType[0]+carData.fuelType.slice(1).toLowerCase()}</span>
+          <span>{carData.emissions}</span>
           <span>{carData.price}</span>
         </div>
       </div>

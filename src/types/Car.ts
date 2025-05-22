@@ -1,9 +1,8 @@
 export interface CarType {
-  id: number;
-  model: string;
+  carModel: string;
   manufacturer: string;
-  year: number;
+  modelYear: number;
   fuelType: string;
-  emission: number;
+  emissions: number;
   price: number;
 }

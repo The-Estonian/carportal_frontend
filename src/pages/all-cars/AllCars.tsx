@@ -10,8 +10,8 @@ const AllCars = ({ fetchedCars, loadCars }: { fetchedCars: CarType[], loadCars: 
   return (
     <div className={styles.cars_container}>
       {loadCars && < Spinner />}
-      {!loadCars && shuffleArray(fetchedCars).map((eachCar) => (
-          <Car key={eachCar.id} carData={eachCar} />
+      {!loadCars && shuffleArray(fetchedCars).map((eachCar, index) => (
+          <Car key={index} carData={eachCar} />
         ))
       }
     </div>

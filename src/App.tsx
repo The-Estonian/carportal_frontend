@@ -33,6 +33,8 @@ function App() {
         console.log("Can't connect to backend");
       }
       const data = await response.json();
+      console.log(data);
+      
       setLoadCars(false);
       setFetchedCars(data);
     } catch (error) {
@@ -41,6 +43,10 @@ function App() {
       // setLoadCars(false);
     }
   };
+
+  const refreshList = () => {
+    fetchCar()
+  }
 
   useEffect(() => {
     fetchCar()
@@ -66,7 +72,7 @@ function App() {
           path='/add'
           element={
             <Suspense fallback={<Spinner />}>
-              <AddCar/>
+              <AddCar refreshList={refreshList} />
             </Suspense>
           }
         />        
