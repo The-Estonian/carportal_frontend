@@ -71,10 +71,10 @@ To run the project locally, follow these steps:
 
 Here's screenshots of the project:
 
-<img src="screenshots/CarportalSwagger.png" alt="Project Screenshot" width="500">
-<img src="screenshots/CarPortalFrontpage.png" alt="Project Screenshot" width="500">
-<img src="screenshots/CarportalAddNewCar.png" alt="Project Screenshot" width="500">
-<img src="screenshots/CarportalSearchByPriceRange.png" alt="Project Screenshot" width="500">
+<img src="screenshots/CarPortalSwagger.png" alt="Project Screenshot" width="1000">
+<img src="screenshots/CarPortalFrontpage.png" alt="Project Screenshot" width="1000">
+<img src="screenshots/CarportalAddNewCar.png" alt="Project Screenshot" width="1000">
+<img src="screenshots/CarportalSearchByPriceRange.png" alt="Project Screenshot" width="1000">
 
 ## Usage
 
