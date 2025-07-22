@@ -1,17 +1,18 @@
+import { useNavigate } from 'react-router-dom';
 
 import Car from '../../components/Car/Car';
 import Spinner from '../../components/Spinner/Spinner';
-import shuffleArray from "../../helpers/shuffler"
 
-import { CarType } from '../../types/Car';
+import { CarInfoType } from '../../types/CarInfo';
 import styles from "./AllCars.module.css"
 
-const AllCars = ({ fetchedCars, loadCars }: { fetchedCars: CarType[], loadCars: boolean; }) => {
+const AllCars = ({ fetchedCars, loadCars }: { fetchedCars: CarInfoType[], loadCars: boolean; }) => {
+  const navigate = useNavigate();
   return (
     <div className={styles.cars_container}>
       {loadCars && < Spinner />}
-      {!loadCars && shuffleArray(fetchedCars).map((eachCar, index) => (
-          <Car key={index} carData={eachCar} />
+      {!loadCars && fetchedCars.map((eachCar, index) => (
+        <Car key={index} carData={eachCar} onClick={() => navigate(`/cars/${index+1}`)} />
         ))
       }
     </div>

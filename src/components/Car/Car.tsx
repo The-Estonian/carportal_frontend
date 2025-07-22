@@ -1,6 +1,7 @@
 import styles from './Car.module.css';
 import { useState } from 'react';
 import { CarType } from '../../types/Car';
+import { CarInfoType } from '../../types/CarInfo';
 
 import camry from '../../assets/Camry.jpg';
 import civic from '../../assets/Civic.jpg';
@@ -11,45 +12,46 @@ import default_car from '../../assets/default.jpg';
 import Spinner from '../Spinner/Spinner';
 
 interface CarProps {
-  carData: CarType;
+  carData: CarType | CarInfoType;
+  onClick?: () => void;
 }
 
-const Car: React.FC<CarProps> = ({ carData }) => {
+const Car: React.FC<CarProps> = ({ carData, onClick }) => {
   const [imageLoading, setImageLoading] = useState<boolean>(true);
   let carImage;
-  if (carData.carModel === 'Camry') {
+  if (carData.modelName === 'Camry') {
     carImage = camry;
-  } else if (carData.carModel === 'Civic') {
+  } else if (carData.modelName === 'Civic') {
     carImage = civic;
-  } else if (carData.carModel === 'F-150') {
+  } else if (carData.modelName === 'F-150') {
     carImage = f150;
-  } else if (carData.carModel === 'Model 3') {
+  } else if (carData.modelName === 'Model 3') {
     carImage = model3;
-  } else if (carData.carModel === 'Prius') {
+  } else if (carData.modelName === 'Prius') {
     carImage = prius;
   } else {
     carImage = default_car;
   }
   return (
-    <div className={styles.carContainer}>
+    <div className={styles.carContainer} onClick={onClick}>
       <div className={styles.carInformation}>
         <div className={styles.titleContainer}>
           {/* <span>ID</span> */}
           <span>Model</span>
           <span>Manufacturer</span>
           <span>Year</span>
-          <span>Fuel Type</span>
-          <span>Emission</span>
-          <span>Price</span>
+          {'fuelType' in carData && <span>Fuel Type</span>}
+          {'emissions' in carData && <span>Emission</span>}
+          {'price' in carData && <span>Price</span>}
         </div>
         <div className={styles.dataContainer}>
           {/* <span>{carData.id}</span> */}
-          <span>{carData.carModel}</span>
-          <span>{carData.manufacturer}</span>
-          <span>{carData.modelYear}</span>
-          <span>{carData.fuelType[0]+carData.fuelType.slice(1).toLowerCase()}</span>
-          <span>{carData.emissions}</span>
-          <span>{carData.price}</span>
+          <span>{carData.modelName}</span>
+          <span>{carData.make}</span>
+          <span>{carData.releaseYear}</span>
+          {'fuelType' in carData && carData.fuelType && <span>{carData.fuelType[0] + carData.fuelType.slice(1).toLowerCase()}</span>}
+          {'emissions' in carData && <span>{carData.emissions}</span>}
+          {'price' in carData && <span>{carData.price}</span>}
         </div>
       </div>
       <div className={styles.imgContainer}>
