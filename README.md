@@ -45,7 +45,7 @@ To run the project locally, follow these steps:
     cd carportal
     ```
 
-2. **Run the backend**:
+1. **Run the backend**:
 
     - Open the first terminal
 
@@ -53,7 +53,7 @@ To run the project locally, follow these steps:
     gradlew bootRun
     ```
 
-3. **Clone the frontend repository**:
+1. **Clone the frontend repository**:
 
 ```bash
    git clone https://github.com/The-Estonian/carportal_frontend
@@ -71,10 +71,10 @@ To run the project locally, follow these steps:
 
 Here's screenshots of the project:
 
-<img src="CarportalSwagger.png" alt="Project Screenshot" width="500">
-<img src="CarPortalFrontpage.png" alt="Project Screenshot" width="500">
-<img src="CarportalAddNewCar.png" alt="Project Screenshot" width="500">
-<img src="CarportalSearchByPriceRange.png" alt="Project Screenshot" width="500">
+<img src="screenshots/CarportalSwagger.png" alt="Project Screenshot" width="500">
+<img src="screenshots/CarPortalFrontpage.png" alt="Project Screenshot" width="500">
+<img src="screenshots/CarportalAddNewCar.png" alt="Project Screenshot" width="500">
+<img src="screenshots/CarportalSearchByPriceRange.png" alt="Project Screenshot" width="500">
 
 ## Usage
 
