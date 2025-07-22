@@ -1,54 +1,99 @@
-# React + TypeScript + Vite
+# CarPortal project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Description
 
-Currently, two official plugins are available:
+BCS Koolitus Car Portal project where we had to create API REST/CRUD endpoints with SWAGGER OpenAPI descriptions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Tech Stack:
 
-## Expanding the ESLint configuration
+-   **Frontend**: React, TypeScript
+-   **Backend**: Java Spring-Boot
+-   **Database**: PostgreSQL
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Table of Contents
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+-   [How to Run the Project](#how-to-run-the-project)
+    -   [Run Locally](#run-locally)
+-   [Screenshots](#screenshots)
+-   [Usage](#usage)
+-   [Contributing](#contributing)
+-   [License](#license)
+-   [Contact](#contact)
+
+## How to Run the Project
+
+To run the project locally, follow these steps:
+
+#### Prerequisites
+
+-   Java 21 dependencies installed.
+-   IntelliJ installed.
+-   Docker installed for PostgreSQL database.
+
+#### Steps
+
+1. **Start the PostgreSQL database**:
+
+    ```bash
+    docker run --name postgres -e POSTGRES_PASSWORD=student123 -p 5432:5432 -d postgres
+    ```
+
+1. **Clone the backend repository**:
+
+    ```bash
+    git clone https://github.com/The-Estonian/carportal
+    cd carportal
+    ```
+
+2. **Run the backend**:
+
+    - Open the first terminal
+
+    ```bash
+    gradlew bootRun
+    ```
+
+3. **Clone the frontend repository**:
+
+```bash
+   git clone https://github.com/The-Estonian/carportal_frontend
+   cd carportal_frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+4. **Run the frontend**:
+    - Open the second terminal
+    ```bash
+    npm install
+    npm run dev
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Screenshots
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Here's screenshots of the project:
+
+<img src="CarportalSwagger.png" alt="Project Screenshot" width="500">
+<img src="CarPortalFrontpage.png" alt="Project Screenshot" width="500">
+<img src="CarportalAddNewCar.png" alt="Project Screenshot" width="500">
+<img src="CarportalSearchByPriceRange.png" alt="Project Screenshot" width="500">
+
+## Usage
+
+After running the project locally, you can see predefined cars or add new ones. You can also search between the cars in the database.
+
+## Contributing
+
+We welcome contributions! Please contact one of the authors in discord if you would like to contribute to future projects.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://opensource.org/license/mit) file for details.
+
+## Contact
+
+For any questions or suggestions, feel free to contact me directly in Discord: [here](https://discord.gg/5AnHPtVJPw)
+
+## Nota Bene
+
+The project is still a work in progress, has some bugs and could also hold more simple games in the future with some new minor bugs.
+
+_Authors: [Jaanus Saar](https://github.com/The-Estonian)_
