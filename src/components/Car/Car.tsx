@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './Car.module.css';
 import { useState } from 'react';
 import { CarType } from '../../types/Car';
@@ -13,10 +14,10 @@ import Spinner from '../Spinner/Spinner';
 
 interface CarProps {
   carData: CarType | CarInfoType;
-  onClick?: () => void;
 }
 
-const Car: React.FC<CarProps> = ({ carData, onClick }) => {
+const Car: React.FC<CarProps> = ({ carData }) => {
+  const navigate = useNavigate();
   const [imageLoading, setImageLoading] = useState<boolean>(true);
   let carImage;
   if (carData.modelName === 'Camry') {
@@ -33,7 +34,7 @@ const Car: React.FC<CarProps> = ({ carData, onClick }) => {
     carImage = default_car;
   }
   return (
-    <div className={styles.carContainer} onClick={onClick}>
+    <div className={styles.carContainer} onClick={()=>  navigate(`/cars/${carData.id}`)}>
       <div className={styles.carInformation}>
         <div className={styles.titleContainer}>
           {/* <span>ID</span> */}

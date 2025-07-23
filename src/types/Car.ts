@@ -1,4 +1,5 @@
 export interface CarType {
+  id: number;
   modelName: string;
   make: string;
   releaseYear: number;
